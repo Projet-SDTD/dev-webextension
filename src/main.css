@@ -1,0 +1,5 @@
+.ptsd-box {
+  position: absolute;
+  z-index: 9999;
+  border: 5px solid red;
+}
