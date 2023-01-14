@@ -4,16 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "ext:build": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/ponce"
+    "ext:dev": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/ponce"
   },
   "devDependencies": {
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "web-ext": "^7.4.0",
-    "webextension-polyfill": "^0.10.0"
+    "web-ext": "^7.4.0"
   },
   "dependencies": {
     "@vue-reactivity/watch": "^0.2.0",
