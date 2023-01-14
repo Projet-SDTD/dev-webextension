@@ -1,5 +1,24 @@
+:root {
+  --ptsd-box-color: red;
+}
+
 .ptsd-box {
   position: absolute;
   z-index: 9999;
-  border: 5px solid red;
+  border: 3px solid var(--ptsd-box-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.ptsd-emotion {
+  margin-bottom: -2em;
+  font-weight: bold;
+  color: var(--ptsd-box-color);
+}
+
+.ptsd-btn-start {
+  padding-left: 1em;
+  padding-right: 1em;
 }

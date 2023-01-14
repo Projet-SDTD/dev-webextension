@@ -1,7 +1,7 @@
 import { reactive, ref } from "@vue/reactivity";
 import { watchEffect } from "@vue-reactivity/watch";
 
-export const useBox = () => {
+export const useHeadBox = () => {
   // Real stream size used by the server data
   const streamWidth = ref(1920);
   const streamHeight = ref(1080);
@@ -10,15 +10,25 @@ export const useBox = () => {
   const boxTransform = reactive({
     width: 200,
     height: 200,
-    x: 1920 / 2,
-    y: 1080 / 2,
+    x: 0,
+    y: 0,
   });
+
+  // Real emotion text
+  const emotionText = ref("uwu");
+
+  // Enable toggle
+  const enabled = ref(false);
 
   // Setup DOM
   const containerEl = ref(document.getElementsByClassName("channel-root__player")[0]);
-  const boxEl = ref(document.createElement("box"));
+  const boxEl = ref(document.createElement("div"));
   boxEl.value.classList.add("ptsd-box");
+  const bottomTextEl = ref(document.createElement("span"));
+  bottomTextEl.value.classList.add("ptsd-emotion");
+
   containerEl.value.append(boxEl.value);
+  boxEl.value.append(bottomTextEl.value);
 
   // Box transform for display (in a function because containerEl dimensions are not reactive)
   const computeDisplayTransform = () => {
@@ -44,6 +54,13 @@ export const useBox = () => {
   // Apply display values to box element reactively
   watchEffect(() => {
     updateBoxTransform();
+    bottomTextEl.value.innerText = emotionText.value;
+
+    if (enabled.value) {
+      boxEl.value.style.display = "";
+    } else {
+      boxEl.value.style.display = "none";
+    }
   });
   const resizeObserver = new ResizeObserver(() => {
     console.debug("resized");
@@ -55,6 +72,8 @@ export const useBox = () => {
     boxEl,
     streamHeight,
     streamWidth,
-    boxTransform
+    boxTransform,
+    emotionText,
+    enabled
   };
 };

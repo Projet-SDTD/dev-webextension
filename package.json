@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "ext:dev": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/ponce"
+    "ext:dev": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/mynthos"
   },
   "devDependencies": {
     "typescript": "^4.9.3",
