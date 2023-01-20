@@ -6,7 +6,7 @@ import './main.css';
 console.debug("CA MARCHE LES POTOS");
 console.debug(document.URL);
 
-setTimeout(() => {
+const startExt = () => {
   const { streamHeight, streamWidth, boxTransform, enabled } = useHeadBox();
   console.debug(boxTransform);
 
@@ -23,4 +23,7 @@ setTimeout(() => {
   });
 
   console.debug(isStarted);
-}, 10000);
+}
+
+// Wait 10s for Twitch'UI to load
+setTimeout(startExt, 10000);
