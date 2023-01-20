@@ -1,4 +1,18 @@
+import { logError } from "./log";
+
 const BASE_URL = "https://phase1.sdtd.marche.ovh";
+
+export const isOnline = async () => {
+  const url = BASE_URL + "/ping";
+
+  try {
+    const res = await fetch(url);
+    return res.ok;
+  } catch (e) {
+    logError(e);
+    return false;
+  }
+};
 
 export const startStream = async () => {
   const url = BASE_URL + "/start";
@@ -27,9 +41,9 @@ export const stopStream = async () => {
 };
 
 // TODO
-interface FaceData {
-  i_dont_know_yet: unknown;
-}
+// interface FaceData {
+//   i_dont_know_yet: unknown;
+// }
 
 export const getFaceData = async () => {
   const url = BASE_URL + "/dbtt";
@@ -37,10 +51,10 @@ export const getFaceData = async () => {
   const data = new FormData();
   data.append("URL", document.URL);
 
-  const req = await fetch(url, {
+  const res = await fetch(url, {
     method: "POST",
     body: data,
   });
 
-  await req.json();
+  await res.json();
 };

@@ -4,7 +4,7 @@
 
 .ptsd-box {
   position: absolute;
-  z-index: 9999;
+  z-index: 9998;
   border: 3px solid var(--ptsd-box-color);
 
   display: flex;
@@ -19,6 +19,18 @@
 }
 
 .ptsd-btn-start {
-  padding-left: 1em;
-  padding-right: 1em;
+  z-index: 9999;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-background-button-brand);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ptsd-btn-start:hover {
+  background-color: var(--color-background-button-brand-active);
+}
+
+.ptsd-btn-start:disabled {
+  background-color: var(--color-background-button-disabled);
+  cursor: not-allowed;
 }

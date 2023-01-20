@@ -1,6 +1,13 @@
 import { reactive, ref } from "@vue/reactivity";
 import { watchEffect } from "@vue-reactivity/watch";
 
+export interface BoxTransform {
+  width: number,
+  height: number,
+  x: number,
+  y: number,
+}
+
 export const useHeadBox = () => {
   // Real stream size used by the server data
   const streamWidth = ref(1920);
@@ -12,7 +19,7 @@ export const useHeadBox = () => {
     height: 200,
     x: 0,
     y: 0,
-  });
+  } as BoxTransform);
 
   // Real emotion text
   const emotionText = ref("uwu");
