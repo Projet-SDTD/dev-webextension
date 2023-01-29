@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
 import webExtension from "@samrum/vite-plugin-web-extension";
 
 import pkg from "./package.json";
@@ -27,7 +26,12 @@ export default defineConfig(({ mode }) => {
             matches: ["https://*.twitch.tv/*"],
             js: ["src/content-script.ts"],
             css: ["src/main.css"],
-          }]
+          }],
+          browser_specific_settings: {
+            gecko: {
+              id: "ptsd-webext@exemple.com",
+            }
+          }
         }
       })
     ],
