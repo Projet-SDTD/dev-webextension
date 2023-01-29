@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "ext:dev": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/ponce",
+    "ext:dev": "npm run build && web-ext run -s dist --target=firefox-desktop --url https://www.twitch.tv/annacramling",
     "ext:build": "npm run build && web-ext build -s dist -a dist-webext -o"
   },
   "devDependencies": {
     "typescript": "^4.9",
     "vite": "^4.0",
-    "web-ext": "^7.4"
+    "web-ext": "^7.5",
+    "webextension-polyfill-ts": "^0.26.0"
   },
   "dependencies": {
+    "@samrum/vite-plugin-web-extension": "^3.0.0",
     "@vue-reactivity/watch": "^0.2.0",
     "@vue/reactivity": "^3.2.45"
   }
